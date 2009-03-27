@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, HealthMetrics</string>
+    <string name="app_name">Health Metrics</string>
+<string name="bp_error">Please enter numeric values for both systolic and diastolic.</string>
+<string name="systolic_label">Systolic (high number):</string>
+
+<string name="diastolic_label">Diastolic (low number):</string>
+<string name="bp_info">Take your blood pressure.  Enter the systolic and diastolic values for your blood pressure reading.\n\nThe current time will be recorded when you press 'Save'.</string>
+<string name="save_btn_label">Save</string>
+<string name="cancel_btn_label">Cancel</string>
+<string name="bp_error_title">Incorrect Data</string>
+
+<string name="bp_dismiss">Okay</string>
+</resources>
