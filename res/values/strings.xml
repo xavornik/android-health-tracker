@@ -12,4 +12,14 @@
 <string name="bp_error_title">Incorrect Data</string>
 
 <string name="bp_dismiss">Okay</string>
+<string name="food_info">Choose whether to enter calories or diet points, and then enter the amount you ate. Click the button to compute a point value if you don't know it.</string>
+<string name="calories_label">Calories:</string>
+<string name="points_label">Points:</string>
+<string name="compute_points_label">Compute Points</string>
+<string name="compute_points_dialog_title">Compute Diet Points</string>
+<string name="food_error">Please enter only numbers.</string>
+<string name="comp_pts_kcal">Calories:</string>
+<string name="comp_pts_fat">Grams of fat:</string>
+<string name="comp_pts_fiber">Grams of fiber:</string>
+<string name="comp_pts_info">Enter the caloric, fat, and fiber content of the food item you ate.</string>
 </resources>

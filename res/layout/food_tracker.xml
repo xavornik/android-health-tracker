@@ -6,27 +6,39 @@
     >
 <TableRow android:layout_weight="4" android:gravity="center">
 <ImageView
-    android:src="@drawable/big_heart"
+    android:src="@drawable/fruits"
     android:layout_gravity="center"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     />
 </TableRow>
-<TableRow android:layout_weight="1">
+
+<RadioGroup
+    android:id="@+id/food_radiogroup"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:checkedButton="@+id/calories_radio"
+    >
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 <View
     android:visibility="invisible"
     android:layout_width="0px"
     android:layout_height="0px"
     android:layout_weight="1"
     />
-<TextView
-    android:text="@string/systolic_label"
+<RadioButton
+    android:id="@+id/calories_radio"
+    android:text="@string/calories_label"
     android:layout_width="0px"
     android:layout_height="wrap_content"
     android:layout_weight="4"
     />
 <EditText
-    android:id="@+id/systolic"
+    android:id="@+id/calories"
     android:layout_width="0px"
     android:layout_height="wrap_content"
     android:layout_weight="2"
@@ -37,21 +49,27 @@
     android:layout_height="0px"
     android:layout_weight="1"
     />
-</TableRow><TableRow android:layout_weight="1">
+</LinearLayout>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
 <View
     android:visibility="invisible"
     android:layout_width="0px"
     android:layout_height="0px"
     android:layout_weight="1"
     />
-<TextView
-    android:text="@string/diastolic_label"
+<RadioButton
+    android:id="@+id/points_radio"
+    android:text="@string/points_label"
     android:layout_width="0px"
     android:layout_height="wrap_content"
     android:layout_weight="4"
     />
 <EditText
-    android:id="@+id/diastolic"
+    android:id="@+id/points"
     android:layout_width="0px"
     android:layout_height="wrap_content"
     android:layout_weight="2"
@@ -62,7 +80,35 @@
     android:layout_height="0px"
     android:layout_weight="1"
     />
-</TableRow><TableRow android:gravity="center">
+</LinearLayout>
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+<View
+    android:visibility="invisible"
+    android:layout_width="0px"
+    android:layout_height="0px"
+    android:layout_weight="5"
+    />
+<Button
+    android:id="@+id/compute_points_button"
+    android:text="@string/compute_points_label"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="5pt"
+    android:enabled="false"
+    />
+<View
+    android:visibility="invisible"
+    android:layout_width="0px"
+    android:layout_height="0px"
+    android:layout_weight="1"
+    />
+</LinearLayout>
+</RadioGroup>
+
+<TableRow android:gravity="center">
 <View
     android:visibility="invisible"
     android:layout_width="0px"
@@ -90,17 +136,19 @@
     android:layout_weight="1"
     />
 </TableRow>
+
 <View
     android:visibility="invisible"
     android:layout_width="10dip"
     android:layout_height="0px"
     android:layout_weight="2"
     />
+
 <TableRow>
 <TextView
     android:layout_width="0px"
     android:layout_height="wrap_content"
-    android:text="@string/bp_info"
+    android:text="@string/food_info"
     android:layout_weight="5"
     android:padding="10dip"
     />
