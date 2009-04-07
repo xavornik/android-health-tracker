@@ -1,26 +1,52 @@
 package net.morrildl.health;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class WeightTracker extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.food_tracker);
+		setContentView(R.layout.weight_tracker);
+		
+		final EditText weight = (EditText)findViewById(R.id.weight);
+		((Button)findViewById(R.id.save_button)).setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				if (saveWeightRecord(weight.getText().toString())) {
+					finish();
+				} else {
+					displayDialog(R.string.bp_error);
+				}
+			}		
+		});
+
+		((Button)findViewById(R.id.cancel_button)).setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				finish();
+			}		
+		});
+
+	}
+
+	protected boolean saveWeightRecord(String string) {
+		return true;
+	}
+
+	protected void displayDialog(int bp_error) {
+		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.bp_error_title);
+		builder.setCancelable(false);
+		builder.setPositiveButton(R.string.bp_dismiss, null);
+		builder.setMessage(bp_error);
+		builder.create().show();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-	}
-
-	protected int computePoints(int kCal, int fatGrams, int fiberGrams) {
-		if (kCal < 0 || fatGrams < 0 || fiberGrams < 0) {
-			throw new IllegalArgumentException("Can't compute points for imaginary foods.");
-		}
-		return (int) Math.round(((double) kCal / 50)
-				+ ((double) fatGrams / 12f)
-				- (fiberGrams < 4 ? (double) fiberGrams : 4f) / 5f);
 	}
 }

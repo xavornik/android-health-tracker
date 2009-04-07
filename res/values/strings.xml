@@ -6,9 +6,9 @@
 <string name="systolic_label">Systolic (high number):</string>
 
 <string name="diastolic_label">Diastolic (low number):</string>
-<string name="bp_info">Take your blood pressure.  Enter the systolic and diastolic values for your blood pressure reading.\n\nThe current time will be recorded when you press 'Save'.</string>
+<string name="bp_info">Take your blood pressure.  Enter the systolic and diastolic values for your blood pressure reading.</string>
 <string name="save_btn_label">Save</string>
-<string name="cancel_btn_label">Cancel</string>
+<string name="cancel_btn_label">Discard</string>
 <string name="bp_error_title">Incorrect Data</string>
 
 <string name="bp_dismiss">Okay</string>
@@ -22,4 +22,9 @@
 <string name="comp_pts_fat">Grams of fat:</string>
 <string name="comp_pts_fiber">Grams of fiber:</string>
 <string name="comp_pts_info">Enter the caloric, fat, and fiber content of the food item you ate.</string>
+<string name="comp_pts_compute_button">Compute</string>
+<string name="weight_label">Weight:</string>
+<string name="weight_info">Enter your weight.</string>
+<string name="bp_title">Blood Pressure</string>
+<string name="bp_save_info">The current time will be recorded with your data when you press 'Save'.</string>
 </resources>

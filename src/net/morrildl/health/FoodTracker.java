@@ -106,6 +106,11 @@ public class FoodTracker extends Activity {
 					}
 				}
 			});
+			((Button)computeDialog.findViewById(R.id.compute_button)).setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					computeDialog.dismiss();
+				}
+			});
 		}
 		((EditText) computeDialog.findViewById(R.id.comp_pts_kcal)).getText()
 				.clear();
