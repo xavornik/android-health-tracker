@@ -13,8 +13,8 @@
 
 <string name="bp_dismiss">Okay</string>
 <string name="food_info">Choose whether to enter calories or diet points, and then enter the amount you ate. Click the button to compute a point value if you don't know it.</string>
-<string name="calories_label">Calories:</string>
-<string name="points_label">Points:</string>
+<string name="calories_label">How much did you eat?</string>
+<string name="points_radio_label">Points</string>
 <string name="compute_points_label">Compute Points</string>
 <string name="compute_points_dialog_title">Compute Diet Points</string>
 <string name="food_error">Please enter only numbers.</string>
@@ -27,4 +27,6 @@
 <string name="weight_info">Enter your weight.</string>
 <string name="bp_title">Blood Pressure</string>
 <string name="bp_save_info">The current time will be recorded with your data when you press 'Save'.</string>
+<string name="food_title">Food Eaten</string>
+<string name="calories_radio_label">Calories</string>
 </resources>

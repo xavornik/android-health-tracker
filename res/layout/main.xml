@@ -10,7 +10,7 @@
     android:id="@+id/heart_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:src="@drawable/big_heart"
+    android:src="@drawable/heart_bot"
     />
 </TableRow>
 <TableRow android:gravity="center">
@@ -18,7 +18,7 @@
     android:id="@+id/food_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:src="@drawable/fruits"
+    android:src="@drawable/heart_bot"
     />
 </TableRow>
 </TableLayout>

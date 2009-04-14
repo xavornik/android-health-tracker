@@ -6,7 +6,7 @@
     >
 <TableRow android:layout_weight="4" android:gravity="center">
 <ImageView
-    android:src="@drawable/big_heart"
+    android:src="@drawable/heart_bot"
     android:layout_gravity="center"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"

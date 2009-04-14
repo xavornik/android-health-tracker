@@ -4,126 +4,109 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<LinearLayout
-    android:orientation="horizontal"
-	android:layout_weight="4"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:gravity="center">
-<ImageView
-    android:src="@drawable/fruits"
-    android:layout_gravity="center"
-    android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
-    />
-</LinearLayout>
-
-<RadioGroup
-    android:id="@+id/food_radiogroup"
+<ScrollView
+    android:layout_height="fill_parent"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical">
+<LinearLayout
     android:orientation="vertical"
-    android:checkedButton="@+id/calories_radio"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="6dip"
+    android:paddingRight="6dip"
+    android:paddingTop="4dip"
+    android:paddingBottom="4dip"
     >
+    
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
-<View
-    android:visibility="invisible"
-    android:layout_width="0px"
-    android:layout_height="0px"
-    android:layout_weight="1"
+<ImageView
+    android:src="@drawable/heart_bot"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
     />
-<RadioButton
-    android:id="@+id/calories_radio"
+<TextView
+    android:text="@string/food_title"
+    android:layout_width="0px"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_gravity="bottom"
+    android:textSize="28sp"
+    android:textColor="#999"
+    />
+</LinearLayout>
+
+<TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/food_info"
+    android:textColor="#fff"
+    android:textSize="14sp"
+    android:paddingTop="2dip"
+    />
+    
+<View
+    android:layout_width="fill_parent"
+    android:layout_height="4dip"
+    android:layout_marginLeft="20dip"
+    android:layout_marginRight="20dip"
+    android:layout_marginTop="4dip"
+    android:layout_marginBottom="4dip"
+    android:background="?android:attr/listDivider"
+    />
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">    
+<TextView
     android:text="@string/calories_label"
     android:layout_width="0px"
     android:layout_height="wrap_content"
-    android:layout_weight="4"
+    android:layout_weight="1"
+    android:layout_marginRight="5dip"
+    android:textSize="16sp"
     />
 <EditText
     android:id="@+id/calories"
     android:layout_width="0px"
     android:layout_height="wrap_content"
-    android:layout_weight="2"
-    />
-<View
-    android:visibility="invisible"
-    android:layout_width="0px"
-    android:layout_height="0px"
     android:layout_weight="1"
+    android:layout_marginLeft="5dip"
     />
 </LinearLayout>
-
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-<View
-    android:visibility="invisible"
-    android:layout_width="0px"
-    android:layout_height="0px"
-    android:layout_weight="1"
-    />
-<RadioButton
-    android:id="@+id/points_radio"
-    android:text="@string/points_label"
-    android:layout_width="0px"
-    android:layout_height="wrap_content"
-    android:layout_weight="4"
-    />
-<EditText
-    android:id="@+id/points"
-    android:layout_width="0px"
-    android:layout_height="wrap_content"
-    android:layout_weight="2"
-    />
-<View
-    android:visibility="invisible"
-    android:layout_width="0px"
-    android:layout_height="0px"
-    android:layout_weight="1"
-    />
-</LinearLayout>
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-<View
-    android:visibility="invisible"
-    android:layout_width="0px"
-    android:layout_height="0px"
-    android:layout_weight="5"
-    />
-<Button
-    android:id="@+id/compute_points_button"
-    android:text="@string/compute_points_label"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="5pt"
-    android:enabled="false"
-    />
-<View
-    android:visibility="invisible"
-    android:layout_width="0px"
-    android:layout_height="0px"
-    android:layout_weight="1"
-    />
-</LinearLayout>
+<RadioGroup
+  android:orientation="horizontal"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_gravity="right">
+  <RadioButton
+  	android:id="@+id/calories_radio"
+  	android:text="@string/calories_radio_label"/>
+  <RadioButton
+  	android:id="@+id/points_radio"
+  	android:text="@string/points_radio_label"/>
 </RadioGroup>
+<Button
+  android:id="@+id/compute_points_button"
+  android:text="@string/compute_points_label"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_gravity="right"/>
+</LinearLayout>
+</ScrollView>
 
 <LinearLayout
-	android:gravity="center"
-	android:orientation="horizontal"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<View
-    android:visibility="invisible"
-    android:layout_width="0px"
-    android:layout_height="0px"
-    android:layout_weight="1"
-    />
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    style="@style/ButtonBarz">
+    
 <Button
     android:id="@+id/save_button"
     android:layout_width="0px"
@@ -137,33 +120,6 @@
     android:layout_weight="1"
     android:layout_height="wrap_content"
     android:text="@string/cancel_btn_label"
-    />
-<View
-    android:visibility="invisible"
-    android:layout_width="0px"
-    android:layout_height="0px"
-    android:layout_weight="1"
-    />
-</LinearLayout>
-
-<View
-    android:visibility="invisible"
-    android:layout_width="10dip"
-    android:layout_height="0px"
-    android:layout_weight="2"
-    />
-
-<LinearLayout
-	android:gravity="center"
-	android:orientation="horizontal"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<TextView
-    android:layout_width="0px"
-    android:layout_height="wrap_content"
-    android:text="@string/food_info"
-    android:layout_weight="5"
-    android:padding="10dip"
     />
 </LinearLayout>
 </LinearLayout>

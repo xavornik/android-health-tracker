@@ -3,7 +3,6 @@ package net.morrildl.health;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
 public class DBHelper {
 	private static DBHelper dbHelper = null;
@@ -26,6 +25,7 @@ public class DBHelper {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private OpenHelper openHelper;
 	
 	private DBHelper(Context context) {

@@ -36,12 +36,11 @@ public class FoodTracker extends Activity {
 				});
 
 		final EditText calories = (EditText) findViewById(R.id.calories);
-		final EditText points = (EditText) findViewById(R.id.points);
 		((Button) findViewById(R.id.save_button))
 				.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View v) {
 						if (saveFoodRecord(calories.getText().toString(),
-								points.getText().toString())) {
+								calories.getText().toString())) {
 							finish();
 						} else {
 							displayDialog(R.string.food_error);
@@ -57,6 +56,7 @@ public class FoodTracker extends Activity {
 						computePoints.setEnabled(isChecked);
 					}
 				});
+		computePoints.setEnabled(false);
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class FoodTracker extends Activity {
 										.getText().toString());
 						Integer points = computePoints(kCal, fatGrams,
 								fiberGrams);
-						Editable x = ((EditText) findViewById(R.id.points))
+						Editable x = ((EditText) findViewById(R.id.calories))
 								.getText();
 						x.replace(0, x.length(), points.toString());
 					} catch (NumberFormatException ex) {
