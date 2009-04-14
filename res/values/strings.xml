@@ -29,4 +29,5 @@
 <string name="bp_save_info">The current time will be recorded with your data when you press 'Save'.</string>
 <string name="food_title">Food Eaten</string>
 <string name="calories_radio_label">Calories</string>
+<string name="weight_title">Weight Tracker</string>
 </resources>
