@@ -13,6 +13,11 @@ public class HealthMetrics extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+		if (!getSharedPreferences(Eula.PREFERENCES_EULA, Activity.MODE_PRIVATE)
+				.getBoolean(Eula.PREFERENCE_EULA_ACCEPTED, false)) {
+			Eula.showEula(this);
+		}
+        
         ((ImageButton)findViewById(R.id.heart_button)).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intent = new Intent();
@@ -25,6 +30,14 @@ public class HealthMetrics extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.setClass(HealthMetrics.this, FoodTracker.class);
+				startActivity(intent);
+			}        	
+        });
+
+        ((ImageButton)findViewById(R.id.weight_button)).setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(HealthMetrics.this, WeightTracker.class);
 				startActivity(intent);
 			}        	
         });

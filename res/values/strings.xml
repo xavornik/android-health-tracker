@@ -30,4 +30,7 @@
 <string name="food_title">Food Eaten</string>
 <string name="calories_radio_label">Calories</string>
 <string name="weight_title">Weight Tracker</string>
+<string name="eula_title">License Agreements</string>
+<string name="eula_dismiss_button">Dismiss</string>
+<string name="eula_body">"This application is for entertainment and informational purposes only. Consult your doctor or other health care provider before entering into any diet or fitness regimen.\n\nThis software is open-source software, licensed according to the terms of the Apache Software License 2.0. You must agree to those terms before using this software. You can find the terms at http://www.apache.org/licenses/LICENSE-2.0</string>
 </resources>

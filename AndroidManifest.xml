@@ -13,6 +13,7 @@
         </activity>
     <activity android:name="BloodPressureTracker"></activity>
 <activity android:name="FoodTracker"></activity>
+<activity android:name="WeightTracker"></activity>
 </application>
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest> 
