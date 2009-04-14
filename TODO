@@ -1,0 +1,8 @@
+- Add database
+  - schema, helper/updater
+- Hook in database
+  - implement the various save*Record() methods
+- Create a common base class to hold the various error Dialog
+  displayers and such (what do you think this is, mixin boy, Scala?)
+- CSV exporter
+- Add some kind of cloud storage, e.g. App Engine, Google Spreadsheets, or something else
