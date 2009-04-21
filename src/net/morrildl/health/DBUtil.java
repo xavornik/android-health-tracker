@@ -84,6 +84,22 @@ public class DBUtil {
 		return "";
 	}
 	
+	// The theory:  rather than storing straight arrays of integers as time-series data in the DB, we store arrays
+	// of *Pairs*, of the form (integer-value, moving-average-value).  Each time the user gives us a new integer
+	// value to store, we compute a new moving-average to go with it (based on the new value and prior moving-average).
+	// Because moving averages trend up and down in tiny increments, we make them floats rounded to the nearest tenth.
+	// This allows us to graph subtle upward/downward trends over longer time ranges.
+	
+	// Tip: when beginning a new series, let the first moving average be equal to the first value.
+	// Then let subsequent values generate subsequent moving averages.
+	
+	// This function calculates a moving average roughly based on the last 10 values.
+	private float getNewMovingAverage(int new_value, float old_moving_average) {
+		float delta = (new_value - old_moving_average) / 10;
+		delta = Math.round(delta * 10) / 10;
+		return (old_moving_average + delta);
+	}
+	
 	public void addBloodPressureRecord(int systolic, int diastolic) {
 		addBloodPressureRecord(systolic, diastolic, System.currentTimeMillis());
 	}
