@@ -15,8 +15,6 @@
  */
 package net.morrildl.health;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
@@ -29,7 +27,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
-public class FoodTracker extends Activity {
+/**
+ * An Activity that collects nutritional (food intake) data.
+ */
+public class FoodTracker extends DataCollectorBaseActivity {
 	private Dialog computeDialog = null;
 
 	@Override
@@ -50,15 +51,27 @@ public class FoodTracker extends Activity {
 					}
 				});
 
+		final RadioButton pointsRB = (RadioButton) findViewById(R.id.points_radio);
 		final EditText calories = (EditText) findViewById(R.id.calories);
 		((Button) findViewById(R.id.save_button))
 				.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View v) {
-						if (saveFoodRecord(calories.getText().toString(),
-								calories.getText().toString())) {
-							finish();
-						} else {
-							displayDialog(R.string.food_error);
+						try {
+							boolean res = false;
+							int caloriesInt = Integer.parseInt(calories
+									.getText().toString());
+							if (pointsRB.isSelected()) {
+								res = dbUtil.addCaloriesRecord(caloriesInt);
+							} else {
+								res = dbUtil.addPointsRecord(caloriesInt);
+							}
+							if (res) {
+								finish();
+							} else {
+								displayErrorDialog(R.string.food_error, false);
+							}
+						} catch (NumberFormatException ex) {
+							displayErrorDialog(R.string.food_error, false);
 						}
 					}
 				});
@@ -79,19 +92,10 @@ public class FoodTracker extends Activity {
 		super.onResume();
 	}
 
-	protected void displayDialog(int bp_error) {
-		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(R.string.bp_error_title);
-		builder.setCancelable(false);
-		builder.setPositiveButton(R.string.bp_dismiss, null);
-		builder.setMessage(bp_error);
-		builder.create().show();
-	}
-
-	protected boolean saveFoodRecord(String string, String string2) {
-		return true;
-	}
-
+	/**
+	 * A convenience method that displays a calculator layout allowing the user
+	 * to calculate diet points.
+	 */
 	protected void showComputePointsDialog() {
 		if (computeDialog == null) {
 			computeDialog = new Dialog(this);
@@ -121,11 +125,12 @@ public class FoodTracker extends Activity {
 					}
 				}
 			});
-			((Button)computeDialog.findViewById(R.id.compute_button)).setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					computeDialog.dismiss();
-				}
-			});
+			((Button) computeDialog.findViewById(R.id.compute_button))
+					.setOnClickListener(new View.OnClickListener() {
+						public void onClick(View v) {
+							computeDialog.dismiss();
+						}
+					});
 		}
 		((EditText) computeDialog.findViewById(R.id.comp_pts_kcal)).getText()
 				.clear();
@@ -136,6 +141,17 @@ public class FoodTracker extends Activity {
 		computeDialog.show();
 	}
 
+	/**
+	 * Calculator method computing 'diet points' according to a popular formula.
+	 * 
+	 * @param kCal
+	 *            nutritional calories of the food item
+	 * @param fatGrams
+	 *            grams of fat in the food item
+	 * @param fiberGrams
+	 *            grams of fiber in the food item
+	 * @return kCal / 50 + fatGrams / 12 - fiberGrams / 4
+	 */
 	protected int computePoints(int kCal, int fatGrams, int fiberGrams) {
 		if (kCal < 0 || fatGrams < 0 || fiberGrams < 0) {
 			throw new NumberFormatException(
