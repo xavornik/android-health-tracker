@@ -1,8 +1,11 @@
-- Create a common base class to hold the various error Dialog
-  displayers and such (what do you think this is, mixin boy, Scala?)
+- Convert Activities to RelativeLayout
+- Add fields for BP
+	- Resting/Active/Exercising
+	- Time override
+- Chartserver trend display code (see below)
+- Add record review/edit
 - CSV exporter
 - Add some kind of cloud storage, e.g. App Engine, Google Spreadsheets, or something else
-- Chartserver trend display code (see below)
 
 
 
