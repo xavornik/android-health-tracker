@@ -1,0 +1,1 @@
+This app lets you easily and quickly record health metrics like your blood pressure, what you eat, your weight, and so on.  (Well, currently it only supports those three, but maybe I'll add stuff.)
